@@ -1,0 +1,286 @@
+<!--
+Single-file HTML + CSS portfolio template generated from your Figma prototype link.
+Replace placeholder text, images and project cards with your real content.
+Save as `index.html` and open in a browser.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Personal portfolio — projects, about, contact">
+  <style>
+    :root{
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #94a3b8;
+      --accent-1: linear-gradient(135deg,#7c3aed,#06b6d4);
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius: 14px;
+      --maxw: 1100px;
+      --ff: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--ff);
+      background: radial-gradient(1200px 500px at 10% 10%, rgba(124,58,237,0.08), transparent),
+                  radial-gradient(900px 400px at 90% 90%, rgba(6,182,212,0.05), transparent),
+                  var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px 16px;
+      display:flex;
+      justify-content:center;
+    }
+    .wrap{width:100%;max-width:var(--maxw)}
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:20px;margin-bottom:28px;
+    }
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{
+      width:52px;height:52px;border-radius:12px;display:grid;place-items:center;
+      background:var(--accent-1);box-shadow:0 6px 18px rgba(12,18,32,0.6);
+      font-weight:800;color:white;font-size:18px
+    }
+
+    nav{display:flex;gap:16px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:500}
+    nav a:hover{color:#fff}
+
+    .hero{
+      display:grid;grid-template-columns:1fr 400px;gap:28px;align-items:center;margin-bottom:28px;
+    }
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:28px;border-radius:var(--radius);backdrop-filter: blur(6px);
+      box-shadow:0 8px 30px rgba(5,8,20,0.6);
+    }
+    h1{margin:0;font-size:32px;letter-spacing:-0.4px}
+    .lead{color:var(--muted);margin-top:8px}
+
+    .cta{margin-top:18px;display:flex;gap:12px}
+    .btn{
+      padding:10px 16px;border-radius:12px;border:0;cursor:pointer;font-weight:600
+    }
+    .btn-primary{background:linear-gradient(90deg,#7c3aed,#06b6d4);color:white}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    /* profile card */
+    .profile{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:20px;border-radius:16px;display:flex;gap:16px;align-items:center;justify-content:flex-start;
+    }
+    .avatar{width:78px;height:78px;border-radius:14px;background:linear-gradient(180deg,#0ea5a6,#7c3aed);display:grid;place-items:center;font-size:28px;font-weight:700}
+    .meta{flex:1}
+    .meta h3{margin:0}
+    .meta p{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+    /* projects */
+    section{margin-bottom:28px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--card);padding:16px;border-radius:12px}
+    .project-media{height:140px;border-radius:10px;background:linear-gradient(135deg, rgba(124,58,237,0.12), rgba(6,182,212,0.06));display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600}
+    .project h4{margin:12px 0 6px}
+    .project p{margin:0;color:var(--muted);font-size:14px}
+    .tags{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px}
+    .tag{background:var(--glass);padding:6px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
+
+    /* skills and contact */
+    .two-col{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+    .skill-list{display:flex;flex-wrap:wrap;gap:10px}
+    .skill{background:var(--glass-2);padding:8px 12px;border-radius:12px;color:var(--muted);font-weight:600}
+
+    footer{color:var(--muted);font-size:14px;padding:12px 0;text-align:center}
+
+    /* responsive */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr 320px}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .two-col{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      header{flex-direction:column;align-items:flex-start}
+      .hero{grid-template-columns:1fr}
+      nav{display:none}
+      .grid{grid-template-columns:1fr}
+      .avatar{width:64px;height:64px}
+    }
+
+    /* small utilities */
+    .muted{color:var(--muted)}
+    .center{display:flex;align-items:center;justify-content:center}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">SU</div>
+        <div>
+          <div style="font-weight:800">Shreya U.</div>
+          <div style="font-size:12px;color:var(--muted)">Frontend Developer • Designer</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-card">
+          <h1>Hi — I’m Shreya, a frontend developer who builds clean, accessible interfaces.</h1>
+          <p class="lead">I design and code beautiful user interfaces, with a focus on performance and usability. I enjoy turning ideas into delightful, responsive web experiences.</p>
+
+          <div class="cta">
+            <button class="btn btn-primary" onclick="location.href='#contact'">Hire me</button>
+            <button class="btn btn-outline" onclick="window.open('https://www.figma.com','_blank')">Open Prototype</button>
+          </div>
+
+          <div style="margin-top:18px;display:flex;gap:14px;align-items:center">
+            <div style="display:flex;gap:12px;align-items:center">
+              <div style="width:44px;height:44px;border-radius:10px;background:var(--glass);display:grid;place-items:center">📁</div>
+              <div>
+                <div style="font-weight:700">5+</div>
+                <div class="muted" style="font-size:13px">Projects shipped</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:center">
+              <div style="width:44px;height:44px;border-radius:10px;background:var(--glass);display:grid;place-items:center">⭐</div>
+              <div>
+                <div style="font-weight:700">4.8</div>
+                <div class="muted" style="font-size:13px">Client rating</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="profile">
+            <div class="avatar">SU</div>
+            <div class="meta">
+              <h3>Shreya U.</h3>
+              <p>Frontend Developer • React, JavaScript, HTML, CSS</p>
+            </div>
+          </div>
+
+          <div style="margin-top:14px;background:var(--card);padding:14px;border-radius:12px">
+            <div style="font-weight:700">Contact</div>
+            <div class="muted" style="margin-top:6px">shreyaukkali41@gmail.com</div>
+            <div class="muted" style="font-size:13px;margin-top:10px">Location — India</div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <a class="btn btn-outline" href="#contact">Message</a>
+              <a class="btn btn-outline" href="#projects">View work</a>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="projects">
+        <h2 style="margin-bottom:12px">Selected projects</h2>
+        <div class="grid">
+
+          <article class="card project">
+            <div class="project-media">Expense Tracker (Demo)</div>
+            <h4>Expense Tracker</h4>
+            <p>Responsive expense manager with localStorage persistence and monthly summaries.</p>
+            <div class="tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-media">Portfolio Site</div>
+            <h4>Portfolio (This site)</h4>
+            <p>Single-page responsive portfolio built with semantic HTML and modern CSS.</p>
+            <div class="tags">
+              <span class="tag">Design</span>
+              <span class="tag">Accessibility</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="project-media">Productivity Gamifier</div>
+            <h4>Productivity Gamifier</h4>
+            <p>Mini app that uses gamification to improve user productivity and task completion.</p>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JS</span>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section class="two-col" id="skills">
+        <div>
+          <h3>Skills & Tools</h3>
+          <div class="skill-list" style="margin-top:12px">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">React</div>
+            <div class="skill">Figma</div>
+            <div class="skill">Git</div>
+          </div>
+
+          <h3 style="margin-top:18px">Experience</h3>
+          <p class="muted">Built multiple consumer-facing interfaces, worked on accessibility improvements, and shipped responsive designs. Comfortable collaborating in small product teams.</p>
+        </div>
+
+        <aside id="contact">
+          <div class="card">
+            <h3>Contact</h3>
+            <p class="muted">Interested in working together? Send a message or download my resume.</p>
+            <form style="margin-top:12px" onsubmit="event.preventDefault();alert('Message sent (demo)')">
+              <label style="display:block;margin-bottom:6px;font-size:13px">Your email</label>
+              <input type="email" placeholder="you@email.com" required style="width:100%;padding:10px;border-radius:10px;border:0;background:rgba(255,255,255,0.02);color:#fff;margin-bottom:8px">
+              <label style="display:block;margin-bottom:6px;font-size:13px">Message</label>
+              <textarea placeholder="Hi Shreya — I'd like to talk about..." rows="4" style="width:100%;padding:10px;border-radius:10px;border:0;background:rgba(255,255,255,0.02);color:#fff;margin-bottom:10px"></textarea>
+              <button class="btn btn-primary" type="submit">Send message</button>
+              <a href="#" class="btn btn-outline" style="display:inline-block;margin-left:8px">Download CV</a>
+            </form>
+          </div>
+        </aside>
+      </section>
+
+    </main>
+
+    <footer>
+      © <span id="year"></span> Shreya U — Built with ❤️ · <span class="muted">Designed from a Figma prototype</span>
+    </footer>
+  </div>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'})}
+      })
+    })
+  </script>
+</body>
+</html>
